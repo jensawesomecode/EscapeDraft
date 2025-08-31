@@ -82,3 +82,17 @@ Your puzzle/exit controller calls GameManager.WinGame() when solved.
 Win/Lose scenes
 
 Buttons wired to GameManager.GoToStart().
+
+Minimal “win/lose” hooks
+
+Wherever you detect success in the Room (e.g., the door’s unlock script):
+
+FindObjectOfType<GameManager>()?.WinGame();
+
+
+If you want to raise events instead (decoupled), you can do:
+
+EventBus.GameWon();
+
+
+…and subscribe in GameManager to load the Win scene (similar to time-expired).
