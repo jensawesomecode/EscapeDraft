@@ -96,3 +96,109 @@ EventBus.GameWon();
 
 
 …and subscribe in GameManager to load the Win scene (similar to time-expired).
+
+UNITY SETTINGS
+🎮 1. Open Build Settings
+
+Menu: File → Build Settings…
+
+Select PC, Mac & Linux Standalone.
+
+Target Platform: Windows.
+
+Architecture: x86_64 (64-bit).
+
+Click Add Open Scenes so your Start scene is included. (Make sure all 4 scenes are added in order: Start, Room, Win, Lose.)
+
+🖼️ 2. Set Default Resolution & Fullscreen
+
+Menu: Edit → Project Settings → Player.
+
+Under Resolution and Presentation (you’ll see a section for Standalone):
+
+Default Screen Width/Height:
+
+A safe choice for a 2D point-and-click game is 1920 × 1080 (Full HD).
+
+If you want something lighter, 1280 × 720 is fine too.
+
+Fullscreen Mode:
+
+Set to Windowed while developing (easier to debug).
+
+For release, you can switch to Fullscreen Window or Exclusive Fullscreen depending on preference.
+
+Resizable Window: On or off depending if you want players to resize.
+
+Run In Background: Off (unless you want the game to keep running when tabbed out).
+
+🖌️ 3. Configure the Canvas (UI scaling)
+
+For your Start screen UI (and any other Canvas):
+
+Select the Canvas in the Hierarchy.
+
+In the Canvas Scaler component:
+
+UI Scale Mode: Scale With Screen Size.
+
+Reference Resolution:
+
+Match your chosen default resolution (e.g., 1920 × 1080).
+
+Screen Match Mode: Match Width Or Height.
+
+Match slider: 0.5 (balances width & height).
+
+This ensures UI elements scale properly on different resolutions.
+
+🔊 4. Audio Settings
+
+In Project Settings → Audio:
+
+Leave defaults for now.
+
+You’ll route your music and SFX through your managers anyway.
+
+If you add a Mixer, you’ll expose master/music/SFX volumes here.
+
+⏱️ 5. Time Settings (for your 5-minute timer)
+
+In Project Settings → Time:
+
+Fixed Timestep: 0.02 (50 FPS physics).
+
+Maximum Allowed Timestep: 0.333.
+
+You don’t need to tweak this unless you’re doing physics-heavy stuff. Your timer runs in real time (WaitForSeconds) so it’s unaffected.
+
+⚙️ 6. Quality Settings
+
+In Project Settings → Quality:
+
+Since you’re making a 2D point-and-click, you don’t need fancy graphics.
+
+You can keep Medium or High as default.
+
+Turn off unnecessary post-processing features to keep builds lightweight.
+
+📦 7. Build
+
+Back to File → Build Settings…
+
+Click Build and Run.
+
+Unity will spit out an .exe + *_Data folder.
+
+Double-click the .exe to test like a normal Windows game.
+
+TL;DR Recommended Baseline
+
+Resolution: 1920 × 1080, Windowed while deving.
+
+Canvas Scaler: Scale With Screen Size, Reference 1920 × 1080.
+
+Scenes: Start, Room, Win, Lose all added in Build Settings.
+
+Build target: Windows 64-bit.
+

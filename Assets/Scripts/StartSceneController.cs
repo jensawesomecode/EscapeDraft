@@ -24,7 +24,7 @@ public class StartSceneController : MonoBehaviour
             startButton.onClick.AddListener(() =>
             {
                 // (Optionally play a click SFX here)
-                FindObjectOfType<GameManager>()?.StartGame();
+                FindAnyObjectByType<GameManager>()?.StartGame();
             });
         }
     }
